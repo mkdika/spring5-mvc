@@ -21,14 +21,26 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.mkdika.spring5mvc;
+package com.mkdika.spring5mvc.controller;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import static org.springframework.web.bind.annotation.RequestMethod.GET;
+import org.springframework.web.servlet.ModelAndView;
 
-@SpringBootApplication
-public class Spring5mvcApplication {
-    public static void main(String[] args) {
-        SpringApplication.run(Spring5mvcApplication.class, args);
+/**
+ *
+ * @author Maikel Chandika <mkdika@gmail.com>
+ */
+@Controller
+@RequestMapping("instaapi")
+public class InstaApiController {
+    
+    @RequestMapping(method = GET)
+    public ModelAndView fetchFeed() {
+        ModelAndView modelAndView = new ModelAndView();        
+        modelAndView.setViewName("instaapi");
+        return modelAndView;
     }
+    
 }
